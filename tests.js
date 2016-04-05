@@ -226,6 +226,7 @@ describe( "ssh connectivity", function() {
 
     it( "should be able to connect to our server", function( done ) {
         this.slow( 500 );
+        this.timeout( 2000 );
         acceptFile( deployFixturePackage, function( filename, data ) {
             filename.should.equal( "build/package-deployment" );
             data.should.equal(
@@ -251,6 +252,8 @@ describe( "GitHub deployment", function() {
     before( () => gutil.log = function() {} );
 
     it( "should throw error if it can't find a GitHub repository", function( done ) {
+        this.slow( 500 );
+        this.timeout( 2000 );
         gulp
             .src( "./fixtures/package" )
             .pipe( deploy( {
@@ -265,6 +268,8 @@ describe( "GitHub deployment", function() {
     } );
 
     it( "should throw error if url of GitHub repository is wrong", function( done ) {
+        this.slow( 500 );
+        this.timeout( 2000 );
         gulp
             .src( "./fixtures/package" )
             .pipe( deploy( {
@@ -280,6 +285,8 @@ describe( "GitHub deployment", function() {
     } );
 
     it( "should throw error if there is no user or repo specified", function( done ) {
+        this.slow( 500 );
+        this.timeout( 2000 );
         gulp
             .src( "./fixtures/package" )
             .pipe( deploy( {
@@ -297,6 +304,7 @@ describe( "GitHub deployment", function() {
     it( "should not throw error if url of GitHub repository is right", function( done ) {
 
         this.slow( 500 );
+        this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
             .post( '/repos/testuser/testrepo/deployments' )
@@ -330,6 +338,7 @@ describe( "GitHub deployment", function() {
     it( "should accept proper description", function( done ) {
 
         this.slow( 500 );
+        this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
             .post( '/repos/testuser/testrepo/deployments', {
@@ -366,6 +375,7 @@ describe( "GitHub deployment", function() {
     it( "should accept proper revision", function( done ) {
 
         this.slow( 500 );
+        this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
             .post( '/repos/testuser/testrepo/deployments', { ref : "testRevision" } )
@@ -400,6 +410,7 @@ describe( "GitHub deployment", function() {
     it( "should accept proper environment", function( done ) {
 
         this.slow( 500 );
+        this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
             .post( '/repos/testuser/testrepo/deployments', { environment : "testEnv" } )
@@ -434,6 +445,7 @@ describe( "GitHub deployment", function() {
     it( "should add a suffix to the filename", function( done ) {
 
         this.slow( 500 );
+        this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
             .post( '/repos/testuser/testrepo/deployments', { environment : "testEnv" } )
@@ -468,6 +480,7 @@ describe( "GitHub deployment", function() {
     it( "should throw error if there is error with github", function( done ) {
 
         this.slow( 500 );
+        this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
             .post( '/repos/testuser/testrepo/deployments' )
