@@ -116,8 +116,7 @@ function acceptFile( client, done ) {
             .on( "end", () => server.close() )
             .on( "error", err => { } )
             .on( "ready", function() {
-                client.on( "session", accept => accept()
-                    .on( "sftp", onSFTP ) );
+                client.on( "session", accept => accept().on( "sftp", onSFTP ) );
             } );
 
     }
@@ -303,7 +302,7 @@ describe( "GitHub deployment", function() {
 
     it( "should not throw error if url of GitHub repository is right", function( done ) {
 
-        this.slow( 500 );
+        this.slow( 1500 );
         this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
@@ -316,7 +315,7 @@ describe( "GitHub deployment", function() {
             data.should.equal(
                 fs.readFileSync( "./fixtures/package", { encoding : 'utf-8' } )
             );
-            done();
+            setTimeout( () => done(), 1000 );
         } );
 
         function deployGitHubFixturePackage() {
@@ -337,7 +336,7 @@ describe( "GitHub deployment", function() {
 
     it( "should accept proper description", function( done ) {
 
-        this.slow( 500 );
+        this.slow( 1500 );
         this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
@@ -352,7 +351,7 @@ describe( "GitHub deployment", function() {
             data.should.equal(
                 fs.readFileSync( "./fixtures/package", { encoding : 'utf-8' } )
             );
-            done();
+            setTimeout( () => done(), 1000 );
         } );
 
         function deployGitHubFixturePackage() {
@@ -374,7 +373,7 @@ describe( "GitHub deployment", function() {
 
     it( "should accept proper revision", function( done ) {
 
-        this.slow( 500 );
+        this.slow( 1500 );
         this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
@@ -387,7 +386,7 @@ describe( "GitHub deployment", function() {
             data.should.equal(
                 fs.readFileSync( "./fixtures/package", { encoding : 'utf-8' } )
             );
-            done();
+            setTimeout( () => done(), 1000 );
         } );
 
         function deployGitHubFixturePackage() {
@@ -409,7 +408,7 @@ describe( "GitHub deployment", function() {
 
     it( "should accept proper environment", function( done ) {
 
-        this.slow( 500 );
+        this.slow( 1500 );
         this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
@@ -422,7 +421,7 @@ describe( "GitHub deployment", function() {
             data.should.equal(
                 fs.readFileSync( "./fixtures/package", { encoding : 'utf-8' } )
             );
-            done();
+            setTimeout( () => done(), 1000 );
         } );
 
         function deployGitHubFixturePackage() {
@@ -444,7 +443,7 @@ describe( "GitHub deployment", function() {
 
     it( "should add a suffix to the filename", function( done ) {
 
-        this.slow( 500 );
+        this.slow( 1500 );
         this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
@@ -457,7 +456,7 @@ describe( "GitHub deployment", function() {
             data.should.equal(
                 fs.readFileSync( "./fixtures/package.tar.gz", { encoding : 'utf-8' } )
             );
-            done();
+            setTimeout( () => done(), 1000 );
         } );
 
         function deployGitHubFixturePackage() {
@@ -479,7 +478,7 @@ describe( "GitHub deployment", function() {
 
     it( "should throw error if there is error with github", function( done ) {
 
-        this.slow( 500 );
+        this.slow( 1500 );
         this.timeout( 2000 );
 
         nock( 'https://api.github.com' )
