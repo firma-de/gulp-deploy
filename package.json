@@ -1,0 +1,52 @@
+{
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "github4": "^0.5.3",
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sftp": "^0.1.5",
+    "gulp-util": "^3.0.7",
+    "stream-combiner": "^0.2.2",
+    "through2": "^2.0.0"
+  },
+  "name": "@firma-de/gulp-deploy",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=4.2.0"
+  },
+  "author": {
+    "name": "firma.de",
+    "email": "techops@firma.de"
+  },
+  "main": "index.js",
+  "contributors": [
+    {
+      "name": "Ivan Drinchev",
+      "email": "drinchev@gmail.com"
+    }
+  ],
+  "description": "Gulp module for deploying and notifying GitHub",
+  "license": "MIT",
+  "devDependencies": {
+    "buffer-equal-constant-time": "^1.0.1",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nsp": "^2.3.0",
+    "gulp-plumber": "^1.0.1",
+    "nock": "^6.0.1",
+    "should": "^8.1.1",
+    "ssh2": "^0.4.13",
+    "gulp-coveralls": "^0.1.4"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "report": "gulp report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:firma-de/gulp-deploy.git"
+  }
+}
